@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="reg_exprt">
+  <table width="335" border="1">
+    <tr>
+      <th width="49" scope="col">NAME</th>
+      <th width="75" scope="col">ADDRESS</th>
+      <th width="53" scope="col"><p>EMAIL</p></th>
+      <th width="55" scope="col">PHONE</th>
+      <th width="69" scope="col">MANAGE</th>
+    </tr>
+    {% for i in val %}
+    <tr>
+      <td> {{i['fname']}} {{i['lname']}} </td>
+      <td> {{i['place']}} {{i['pin']}} {{i['post']}} </td>
+      <td> {{i['email']}} </td>
+      <td> {{i['phone']}} </td>
+      <td><p><a href="edit_expert?id={{i['login_id']}}">Edit</a></p>
+
+      <p><a href="delete_expert?id={{i['login_id']}}">Delete</a></p></td>
+    </tr>
+    {% endfor %}
+
+    <tr>
+      <td colspan="5"><div align="center">
+        <input name="Submit" type="submit" value="ADD" />
+      </div></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>
